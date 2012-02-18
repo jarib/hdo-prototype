@@ -32,3 +32,8 @@ get "/categories" do
   @categories = settings.cache[:categories] ||= Category.from_xml(File.join(settings.export_folder, "emner/index.html"))
   erb :categories
 end
+
+get "/issues" do
+  # @issues = settings.cache[:issues] ||= Issue.from_xml(File.join(settings.export_folder, "saker/index.html?sesjonid=2011-2012"))
+  erb :issues
+end
