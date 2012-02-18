@@ -1,6 +1,5 @@
 class Representative
   def self.from_xml(path)
-    p :path => path
     doc = Nokogiri::XML.parse(File.read(path))
     doc.css("dagensrepresentant").map { |node| new node }
   end
