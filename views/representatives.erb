@@ -1,0 +1,24 @@
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Fornavn</th>
+      <th>Etternavn</th>
+      <th>Fylke</th>
+      <th>Parti</th>
+      <th>Komitéer</th>
+      <th>Fast vara for</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @representatives.each do |rep| %>
+      <tr>
+        <td><%= rep.first_name %></td>
+        <td><%= rep.last_name %></td>
+        <td><%= rep.county %></td>
+        <td><%= rep.party %></td>
+        <td><%= rep.committees %></td>
+        <td><%= rep.deputy_for && rep.deputy_for.name %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

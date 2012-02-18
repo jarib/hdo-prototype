@@ -1,0 +1,16 @@
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Navn</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @parties.each do |party| %>
+      <tr>
+        <td><%= party.id %></td>
+        <td><%= party.name %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
