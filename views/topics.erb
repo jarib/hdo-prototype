@@ -7,14 +7,14 @@
     </tr>
   </thead>
   <tbody>
-      <% @categories.each do |rep| %>
+      <% @topics.each do |topic| %>
       <tr>
-        <td><%= rep.id %></td>
-        <td><%= rep.name %></td>
+        <td><%= topic.id %></td>
+        <td><%= topic.name %></td>
         <td>
-          <% rep.sub_categories.each do |cat| %>
+          <% topic.sub_topics.each do |sub_topic| %>
           <ul>
-            <li><%= cat.name %></li>
+            <li><%= sub_topic.name %></li>
           </ul>
           <% end %>
         </td>

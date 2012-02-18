@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'json'
 require 'party'
 require 'representative'
-require 'category'
+require 'topic'
 
 set :public_folder, File.expand_path("../public", __FILE__)
 set :export_folder, File.expand_path("../folketingparser/rawdata/data.stortinget.no/eksport", __FILE__)
@@ -28,9 +28,10 @@ get "/representatives" do
   erb :representatives
 end
 
-get "/categories" do
-  @categories = settings.cache[:categories] ||= Category.from_xml(File.join(settings.export_folder, "emner/index.html"))
-  erb :categories
+get "/topics" do
+  @topics = settings.cache[:topics] ||= Topic.from_xml(File.join(settings.export_folder, "emner/index.html"))
+  @topics = @topics.sort_by { |e| e.id.to_i }
+  erb :topics
 end
 
 get "/issues" do

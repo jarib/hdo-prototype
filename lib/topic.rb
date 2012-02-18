@@ -1,4 +1,4 @@
-class Category
+class Topic
   def self.from_xml(path)
     doc = Nokogiri::XML.parse(File.read(path))
     doc.css("emne_liste > emne").map { |node| new node }
@@ -12,7 +12,7 @@ class Category
     @node.css("id").first.text
   end
 
-  def main_category?
+  def main_topic?
     @node.css("er_hovedemne").first.text == "true"
   end
 
@@ -20,7 +20,7 @@ class Category
     @node.css("navn").first.text
   end
 
-  def sub_categories
+  def sub_topics
     subs = @node.css("underemne_liste > emne").map { |e| self.class.new e }
     subs.sort_by { |e| e.name }
   end
