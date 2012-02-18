@@ -8,7 +8,7 @@ require 'representative'
 require 'category'
 
 set :public_folder, File.expand_path("../public", __FILE__)
-set :export_folder, File.expand_path("../../folketingparser/rawdata/data.stortinget.no/eksport", __FILE__)
+set :export_folder, File.expand_path("../folketingparser/rawdata/data.stortinget.no/eksport", __FILE__)
 set :cache, {}
 
 get "/" do
