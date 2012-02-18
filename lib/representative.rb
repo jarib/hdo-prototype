@@ -29,7 +29,7 @@ class Representative
   end
 
   def committees
-    @node.css("komite").map { |e| e.css("id").text }.join(", ")
+    @node.css("komite").map { |e| e.css("navn").text }
   end
 
   def deputy_for

@@ -1,4 +1,4 @@
-<table class="zebra-striped">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Navn</th>
@@ -14,7 +14,13 @@
         <td><%= rep.last_name %>, <%= rep.first_name %></td>
         <td><%= rep.county %></td>
         <td><%= rep.party %></td>
-        <td><%= rep.committees %></td>
+        <td>
+          <ul class="unstyled">
+            <% rep.committees.each do |com| %>
+            <li><%= com %></li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= rep.deputy_for && rep.deputy_for.name %></td>
       </tr>
       <% end %>

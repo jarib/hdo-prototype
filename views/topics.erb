@@ -1,4 +1,4 @@
-<table class="condensed-table">
+<table class="table">
   <thead>
     <tr>
       <th>Id</th>
@@ -13,7 +13,7 @@
         <td><%= topic.name %></td>
         <td>
           <% topic.sub_topics.each do |sub_topic| %>
-          <ul>
+          <ul class="unstyled">
             <li><%= sub_topic.name %></li>
           </ul>
           <% end %>
