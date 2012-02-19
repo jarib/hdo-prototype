@@ -14,7 +14,7 @@
         <td>
           <% topic.sub_topics.each do |sub_topic| %>
           <ul class="unstyled">
-            <li><%= sub_topic.name %></li>
+            <li><%= sub_topic.id %>: <%= sub_topic.name %></li>
           </ul>
           <% end %>
         </td>
