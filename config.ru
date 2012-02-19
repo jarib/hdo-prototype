@@ -1,3 +1,6 @@
-require File.expand_path("../app", __FILE__)
+$:.unshift File.expand_path("../lib", __FILE__)
 
-run Sinatra::Application
+require 'hdo'
+require 'hdo/app'
+
+run HDO::App

@@ -7,14 +7,16 @@
     </tr>
   </thead>
   <tbody>
-      <% @topics.each do |topic| %>
+      <% @topics.each do |topic| 
+        next unless topic.main?
+      %>
       <tr>
-        <td><%= topic.id %></td>
+        <td><%= topic.import_id %></td>
         <td><%= topic.name %></td>
         <td>
-          <% topic.sub_topics.each do |sub_topic| %>
+          <% topic.children.each do |sub_topic| %>
           <ul class="unstyled">
-            <li><%= sub_topic.id %>: <%= sub_topic.name %></li>
+            <li><%= sub_topic.import_id %>: <%= sub_topic.name %></li>
           </ul>
           <% end %>
         </td>

@@ -15,11 +15,11 @@
       <tr>
         <td><%= rep.name %></td>
         <td><%= rep.county %></td>
-        <td><%= rep.party %></td>
+        <td><%= rep.party.name %></td>
         <td>
           <ul class="unstyled">
             <% rep.committees.each do |com| %>
-            <li><%= com %></li>
+            <li><%= com.import_id %></li>
             <% end %>
           </ul>
         </td>
