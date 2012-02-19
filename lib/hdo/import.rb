@@ -62,7 +62,13 @@ module HDO
         reps.each do |rep|
           party = Model::Party.find_by_name(rep.party)
           committees = rep.committees.map { |id| Model::Committee.find_by_import_id(id) }
-          Model::Representative.create(:first_name => rep.first_name, :last_name => rep.last_name, :county => rep.county, :party => party, :committees => committees)
+          Model::Representative.create(
+            :first_name => rep.first_name,
+            :last_name  => rep.last_name,
+            :county     => rep.county,
+            :party      => party,
+            :committees => committees
+          )
         end
       }
     end

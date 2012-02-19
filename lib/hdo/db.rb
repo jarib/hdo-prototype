@@ -36,21 +36,18 @@ unless HDO::Model::Party.table_exists?
     end
 
     create_table :representatives do |t|
-      t.string :import_id
+      t.string  :import_id
       t.integer :party_id
-      t.string :first_name
-      t.string :last_name
-      t.string :county # county_id
-      t.string :party # party_id
-      t.string :committee # committee_id
-      t.string :deputy_for # representative_id
+      t.string  :first_name
+      t.string  :last_name
+      t.string  :county # county_id
     end
 
     create_table :topics do |t|
       t.integer :import_id
       t.integer :parent_id
       t.boolean :main
-      t.string :name
+      t.string  :name
     end
 
     create_table :representatives_parties, :id => false do |t|
