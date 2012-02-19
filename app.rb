@@ -20,8 +20,7 @@ get "/" do
 end
 
 get "/parties" do
-  session_id = params[:session_id] || settings.default_session_id
-  @parties = settings.cache[:parties] ||= Party.from_xml(File.join(settings.export_folder, "partier/index.html?SesjonId=#{settings.default_session_id}"))
+  @parties = settings.cache[:parties] ||= Party.from_xml(File.join(settings.export_folder, "partier/index.html?sesjonid=#{settings.default_session_id}"))
 
   erb :parties
 end
@@ -40,7 +39,7 @@ get "/topics" do
 end
 
 get "/issues" do
-  @issues = settings.cache[:issues] ||= Issue.from_xml(File.join(settings.export_folder, "saker/index.html?SesjonId=#{settings.default_session_id}"))
+  @issues = settings.cache[:issues] ||= Issue.from_xml(File.join(settings.export_folder, "saker/index.html?sesjonid=#{settings.default_session_id}"))
   @issues = @issues.sort_by { |e| e.id }
   erb :issues
 end
