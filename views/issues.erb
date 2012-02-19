@@ -1,0 +1,41 @@
+<div class="accordion" id="issues-accordion">
+  <% @issues.each do |issue| %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="issues-accordion" href="#issue-<%= issue.id %>">
+          <%= issue.short_title %>
+        </a>
+      </div>
+      <div id="issue-<%= issue.id  %>" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <dl>
+            <dt>Id</dt>
+            <dd><%= issue.id %></dd>
+
+            <dt>Sist oppdatert</dt>
+            <dd><%= issue.updated_at.strftime '%Y-%m-%d' %></dd>
+
+            <dt>Tittel</dt>
+            <dd><%= issue.title %></dd>
+
+            <dt>Type og dokumentgruppe</dt>
+            <dd><%= issue.type %>, <%= issue.document_group %></dd>
+
+            <dt>Henvisning</dt>
+            <dd><%= issue.reference %></dd>
+
+            <dt>Emner</dt>
+            <dd>
+              <ul class="unstyled">
+                <% issue.topics.each do |topic| %>
+                <li><%= topic.name %></li>
+                <% end %>
+              </ul>
+            </dd>
+
+          </dl>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

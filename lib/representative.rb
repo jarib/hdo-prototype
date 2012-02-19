@@ -1,6 +1,7 @@
 class Representative
   def self.from_xml(path)
     doc = Nokogiri::XML.parse(File.read(path))
+    doc.remove_namespaces!
     doc.css("dagensrepresentant").map { |node| new node }
   end
 
@@ -9,31 +10,31 @@ class Representative
   end
 
   def name
-    "#{first_name} #{last_name}"
+    "#{last_name}, #{first_name}"
   end
 
   def first_name
-    @node.css("fornavn").first.text
+    @node.xpath("./fornavn").text
   end
 
   def last_name
-    @node.css("etternavn").first.text
+    @node.xpath("./etternavn").first.text
   end
 
   def county
-    @node.css("fylke").first.css("navn").text
+    @node.xpath("./fylke/navn").text
   end
 
   def party
-    @node.css("parti").first.css("navn").text
+    @node.xpath("./parti").first.css("navn").text
   end
 
   def committees
-    @node.css("komite").map { |e| e.css("navn").text }
+    @node.css("komite").map { |e| e.css("id").text }
   end
 
   def deputy_for
-    node = @node.css("fast_vara_for")
+    node = @node.xpath("./fast_vara_for")
     if node.children.size > 0
       Representative.new(node)
     end

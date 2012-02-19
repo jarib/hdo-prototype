@@ -6,6 +6,7 @@ require 'json'
 require 'party'
 require 'representative'
 require 'topic'
+require 'issue'
 
 set :public_folder, File.expand_path("../public", __FILE__)
 set :export_folder, File.expand_path("../folketingparser/rawdata/data.stortinget.no/eksport", __FILE__)
@@ -30,11 +31,12 @@ end
 
 get "/topics" do
   @topics = settings.cache[:topics] ||= Topic.from_xml(File.join(settings.export_folder, "emner/index.html"))
-  @topics = @topics.sort_by { |e| e.id.to_i }
+  @topics = @topics.sort_by { |e| e.id }
   erb :topics
 end
 
 get "/issues" do
-  # @issues = settings.cache[:issues] ||= Issue.from_xml(File.join(settings.export_folder, "saker/index.html?sesjonid=2011-2012"))
+  @issues = settings.cache[:issues] ||= Issue.from_xml(File.join(settings.export_folder, "saker/index.html?sesjonid=2011-2012"))
+  @issues = @issues.sort_by { |e| e.id }
   erb :issues
 end

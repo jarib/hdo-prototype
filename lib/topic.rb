@@ -9,7 +9,7 @@ class Topic
   end
 
   def id
-    @node.css("id").first.text
+    @node.css("id").first.text.to_i
   end
 
   def main_topic?
