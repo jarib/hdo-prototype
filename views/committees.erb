@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Navn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @committees.each do |com| %>
+      <tr>
+        <td><%= com.id %></td>
+        <td><%= com.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

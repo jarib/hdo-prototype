@@ -1,8 +1,6 @@
 require 'time'
 
 class Issue
-  attr_reader :node
-
   def self.from_xml(path)
     doc = Nokogiri::XML.parse(File.read(path))
     doc.remove_namespaces!
