@@ -3,6 +3,7 @@
     <tr>
       <th>Id</th>
       <th>Navn</th>
+      <th>Antall representanter</th>
     </tr>
   </thead>
   <tbody>
@@ -10,6 +11,7 @@
       <tr>
         <td><%= party.id %></td>
         <td><%= party.name %></td>
+        <td><%= party.representative_ids.size %></td>
       </tr>
       <% end %>
   </tbody>
