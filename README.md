@@ -2,12 +2,12 @@ Holder de ord
 =============
 
 Dependencies
-============
+------------
 
 * Ruby + Rubygems
 
 Usage
-====
+-----
 
 ```
 $ git submodule init && git submodule update
