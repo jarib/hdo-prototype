@@ -6,9 +6,6 @@ module HDO
     set :public_folder, File.expand_path("../public", __FILE__)
     set :cache, {}
 
-    configure do
-    end
-
     get "/" do
       erb :index
     end
@@ -24,18 +21,23 @@ module HDO
     end
 
     get "/topics" do
-      @topics = settings.cache[:topics] ||= Model::Topic.order(:import_id)
+      @topics = settings.cache[:topics] ||= Model::Topic.order(:external_id)
       erb :topics
     end
 
     get "/issues" do
-      @issues = settings.cache[:issues] ||= Model::Issue.order(:import_id)
+      @issues = settings.cache[:issues] ||= Model::Issue.order(:external_id)
       erb :issues
     end
 
     get "/committees" do
-      @committees = settings.cache[:committees] ||= Model::Committee.order(:import_id)
+      @committees = settings.cache[:committees] ||= Model::Committee.order(:external_id)
       erb :committees
+    end
+
+    get "/votes" do
+      # @votes = settings.cache[:votes] ||= Model::Votes.all()
+      erb :votes
     end
 
     get "/cache/reset" do

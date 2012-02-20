@@ -11,12 +11,12 @@
         next unless topic.main?
       %>
       <tr>
-        <td><%= topic.import_id %></td>
+        <td><%= topic.external_id %></td>
         <td><%= topic.name %></td>
         <td>
           <% topic.children.each do |sub_topic| %>
           <ul class="unstyled">
-            <li><%= sub_topic.import_id %>: <%= sub_topic.name %></li>
+            <li><%= sub_topic.external_id %>: <%= sub_topic.name %></li>
           </ul>
           <% end %>
         </td>
