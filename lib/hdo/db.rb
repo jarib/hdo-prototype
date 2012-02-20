@@ -32,13 +32,13 @@ unless HDO::Model::Party.table_exists?
     end
 
     create_table :issues do |t|
-      t.integer :external_id
-      t.string  :short_title
-      t.string  :title
-      t.dattime    :last_update
-      t.string  :type
-      t.string  :document_group
-      t.string  :reference
+      t.integer  :external_id
+      t.string   :short_title
+      t.string   :title
+      t.datetime :last_update
+      t.string   :type
+      t.string   :document_group
+      t.string   :reference
     end
 
     create_table :representatives do |t|
