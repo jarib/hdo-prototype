@@ -36,7 +36,7 @@ unless HDO::Model::Party.table_exists?
       t.string   :short_title
       t.string   :title
       t.datetime :last_update
-      t.string   :type
+      t.string   :issue_type # activerecord doesn't like 'type' as a column name.
       t.string   :document_group
       t.string   :reference
     end

@@ -45,11 +45,11 @@ module HDO
           topics = i.topics.map { |e| Model::Topic.find_by_external_id(e.id) or raise "#{e.id}/#{e.name} not found" }
 
           Model::Issue.create(
-            :external_id      => i.id,
+            :external_id    => i.id,
             :short_title    => i.short_title,
             :title          => i.title,
             :last_update    => i.last_update,
-            :type           => i.type,
+            :issue_type     => i.type,
             :document_group => i.document_group,
             :reference      => i.reference,
             :topics         => topics
