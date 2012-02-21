@@ -36,11 +36,15 @@
           </a>
           <a class="brand" href="/"><%=t 'app.title'  %></a>
           <div class="container nav-collapse">
-            <ul class="nav">
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Docs", :controller => "docs"  %></li>
+            <ul class="nav pull-right">
+              <li><a href="/parties"><i class="icon-flag icon-white"></i> Partier</a></li>
+              <li><a href="/representatives"><i class="icon-user icon-white"></i> Representanter</a></li>
+              <li><a href="/committees"><i class="icon-inbox icon-white"></i> Komiteer</a></li>
+              <li><a href="/issues"><i class="icon-file icon-white"></i> Saker</a></li>
+              <li><a href="/topics"><i class="icon-folder-close icon-white"></i> Emner</a></li>
+              <li><a href="/votes"><i class="icon-envelope icon-white"></i> Voteringer</a></li>
+              <li class="divider-vertical"></li>
+              <li><%= link_to "Dokumentasjon", :controller => "docs" %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
