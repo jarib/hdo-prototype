@@ -1,4 +1,5 @@
 Hdo::Application.routes.draw do
+  resources :parties
   resources :representatives
 
   get "home/index"

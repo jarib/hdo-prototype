@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Partier</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Navn</th>
+      <th>Antall representanter</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @parties.each do |party| %>
+      <tr>
+        <td><%= party.id %></td>
+        <td><%= link_to party.name, party %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
