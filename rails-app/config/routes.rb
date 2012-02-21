@@ -1,4 +1,6 @@
 Hdo::Application.routes.draw do
+  resources :representatives
+
   get "home/index"
   get "docs/index"
 

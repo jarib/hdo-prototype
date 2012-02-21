@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Representanter</h1>
+</div>
+
+<p class="pull-right">Viser <strong><%= @representatives.size %></strong> representanter.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>External id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @representatives.each do |rep| %>
+      <tr>
+        <td><%= rep.external_id %></td>
+        <td><%= link_to rep.display_name, rep %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
