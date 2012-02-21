@@ -1,5 +1,6 @@
 Hdo::Application.routes.draw do
   get "home/index"
+  get "docs/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

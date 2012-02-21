@@ -7,7 +7,7 @@ $(document).ready(function() {
   $(".modal").modal();
   $("a[rel=popover]").popover();
   $(".navbar").scrollspy();
-  $(".tab").tab "show";
+  $(".tab").tab("show");
   $(".tooltip").tooltip();
   $(".typeahead").typeahead();
   $("a[rel=tooltip]").tooltip();
