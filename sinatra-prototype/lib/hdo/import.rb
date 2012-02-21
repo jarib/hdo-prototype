@@ -8,7 +8,7 @@ require 'hdo/import/vote'
 
 module HDO
   module Import
-    EXPORT_DIR         = File.expand_path("../../../folketingparser/rawdata/data.stortinget.no/eksport", __FILE__)
+    EXPORT_DIR         = File.expand_path("../../../../folketingparser/rawdata/data.stortinget.no/eksport", __FILE__)
     DEFAULT_SESSION_ID = "2011-2012"
 
     def self.all
