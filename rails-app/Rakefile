@@ -9,3 +9,5 @@ Hdo::Application.load_tasks
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 task :spec => %w[db:test:prepare]
+
+task :default => :spec
