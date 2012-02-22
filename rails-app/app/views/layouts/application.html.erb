@@ -37,8 +37,16 @@
           <a class="brand" href="/"><%=t 'app.title'  %></a>
           <div class="container nav-collapse">
             <ul class="nav pull-right">
-              <li><a href="/parties"><i class="icon-flag icon-white"></i> Partier</a></li>
-              <li><a href="/representatives"><i class="icon-user icon-white"></i> Representanter</a></li>
+              <li>
+                <%= link_to parties_path do %>
+                  <i class="icon-flag icon-white"></i> <%= Party.model_name.human :count => 2 %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to representatives_path do %>
+                  <i class="icon-user icon-white"></i> <%= Representative.model_name.human :count => 2 %>
+                <% end %>
+              </li>
               <li><a href="/committees"><i class="icon-inbox icon-white"></i> Komiteer</a></li>
               <li><a href="/issues"><i class="icon-file icon-white"></i> Saker</a></li>
               <li><a href="/topics"><i class="icon-folder-close icon-white"></i> Emner</a></li>

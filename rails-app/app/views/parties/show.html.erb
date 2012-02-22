@@ -2,16 +2,16 @@
 
 <div class="well">
   <p>
-    <strong>External Id:</strong>
+    <strong><%= Party.human_attribute_name :external_id %>:</strong>
     <%= @party.external_id %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong><%= Party.human_attribute_name :name %>:</strong>
     <%= @party.name %>
   </p>
 
-  <strong>Representanter</strong>
+  <strong><%= Party.human_attribute_name :representatives %>:</strong>
   <ul>
     <% @party.representatives.each do |rep| %>
       <li>
