@@ -2,7 +2,7 @@ module Hdo
   module Import
     class Cli
 
-      def initialize(args)
+      def initialize(argv)
         type = argv.shift
         @importer = case type
                     when 'representative'
@@ -10,7 +10,7 @@ module Hdo
                     when 'party'
                       Party
                     else
-                      raise ArgumentError, "invalid type: #{type}"
+                      raise ArgumentError, "invalid type: #{type.inspect}"
                     end
 
         @file = argv.shift or raise ArgumentError, 'no file given'
