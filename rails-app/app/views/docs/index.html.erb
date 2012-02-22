@@ -1,6 +1,7 @@
 <div class="subnav">
   <ul class="nav nav-pills">
     <li><a href="#source-code">Source code</a></li>
+    <li><a href="#api">API</a></li>
     <li><a href="#data-import">Data import</a></li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Input formats <b class="caret"></b></a>
@@ -12,7 +13,6 @@
         <% end %>
       </ul>
     </li>
-    <li><a href="#api">API</a></li>
   </ul>
 </div>
 
@@ -23,16 +23,23 @@
   <p>The source code for this project is available on <a href="http://github.com/jarib/hdo-prototype">GitHub</a>.
 </section>
 
+<section id="api">
+  <div class="page-header">
+    <h1>API</h1>
+  </div>
+
+  <p>Future: Describe the API.</p>
+</section>
+
 <section id="data-import">
   <div class="page-header">
     <h1>Data import</h1>
   </div>
   <p>To import your data, you should have a file for each of <a href="#input-formats">these XML types</a>, and pass them to <code>script/import</code>, e.g.:</p>
   <pre>
-$ cat representatives.xml
+<strong>$</strong> cat /path/to/reps.xml
 <%= "<representatives>\n  " + Hdo::Import::Representative::XML_EXAMPLE.split("\n").join("\n  ") + "\n</representatives>" %>
-$ script/import --representative representatives.xml
-  </pre>
+<strong>$</strong> script/import representatives /path/to/reps.xml</pre>
 </section>
 
 <section id="input-formats">
@@ -74,12 +81,3 @@ $ script/import --representative representatives.xml
     <pre class=""><%= import_type::XML_EXAMPLE %></pre>
   <% end %>
 </section>
-
-<section id="api">
-  <div class="page-header">
-    <h1>API</h1>
-  </div>
-
-  <p>Future: Describe the output API.</p>
-</section>
-
