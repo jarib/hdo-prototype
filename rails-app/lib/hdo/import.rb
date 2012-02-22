@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 module Hdo
   module Import
     Field = Struct.new(:name, :required, :type, :description)
@@ -13,3 +15,5 @@ require 'hdo/import/party'
 require 'hdo/import/issue'
 require 'hdo/import/topic'
 require 'hdo/import/committee'
+
+require 'hdo/import/cli'

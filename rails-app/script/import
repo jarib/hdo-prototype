@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+APP_PATH = File.expand_path('../../config/application',  __FILE__)
+require File.expand_path('../../config/boot',  __FILE__)
+
+# how de we load the rails stack here?
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+
+require 'hdo/import'
+
+begin
+  Hdo::Import::Cli.new(ARGV).run
+rescue ArgumentError => ex
+  STDERR.puts ex.message
+  exit 1
+end
