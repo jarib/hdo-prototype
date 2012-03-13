@@ -27,6 +27,20 @@ module Hdo
 </representative>
       XML
 
+      def self.import(doc)
+        doc.css("representative").map do |rep|
+          party = ::Party.find_by_name rep.css("party").text
+
+          ::Representative.create(
+            :external_id => rep.css("externalId").first.text,
+            :first_name  => rep.css("firstName").first.text,
+            :last_name   => rep.css("lastName").first.text,
+            # :area        => rep.css("area").text,
+            :party       => party
+          )
+        end
+      end
+
     end
   end
 end

@@ -3,25 +3,34 @@ module Hdo
     class Cli
 
       def initialize(argv)
-        type = argv.shift
-        @importer = case type
-                    when 'representative'
-                      Representative
-                    when 'party'
-                      Party
-                    else
-                      raise ArgumentError, "invalid type: #{type.inspect}"
-                    end
+        if argv.empty?
+          raise ArgumentError, 'no file given'
+        end
 
-        @file = argv.shift or raise ArgumentError, 'no file given'
+        @files = argv
       end
 
       def run
-
+        @files.each do |file|
+          puts "importing #{file.inspect}"
+          puts File.read(file)
+          doc = Nokogiri.XML(File.read(file)).first_element_child
+          import doc
+        end
       end
 
       private
 
+      def import(doc)
+        case doc.name
+        when 'representatives'
+          Representative.import doc
+        when 'parties'
+          Party.import doc
+        else
+          raise "uknown type: #{doc.name}"
+        end
+      end
 
     end
   end

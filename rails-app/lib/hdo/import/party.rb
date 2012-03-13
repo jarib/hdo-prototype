@@ -14,6 +14,15 @@ module Hdo
 </party>
       XML
 
+      def self.import(doc)
+        doc.css("party").map do |party|
+          ::Party.create(
+            :external_id => party.css("externalId").text,
+            :name        => party.css("name").text
+          )
+        end
+      end
+
     end
   end
 end

@@ -2,7 +2,7 @@ class RepresentativesController < ApplicationController
   # GET /representatives
   # GET /representatives.json
   def index
-    @representatives = Representative.all
+    @representatives = Representative.order :last_name
 
     respond_to do |format|
       format.html # index.html.erb

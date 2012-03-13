@@ -13,7 +13,7 @@
 
   <strong><%= Party.human_attribute_name :representatives %>:</strong>
   <ul>
-    <% @party.representatives.each do |rep| %>
+    <% @party.representatives.sort_by(&:last_name).each do |rep| %>
       <li>
         <%= link_to rep.display_name, rep %>
       </li>

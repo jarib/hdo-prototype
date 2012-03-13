@@ -8,9 +8,4 @@ $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 
 require 'hdo/import'
 
-begin
-  Hdo::Import::Cli.new(ARGV).run
-rescue ArgumentError => ex
-  STDERR.puts ex.message
-  exit 1
-end
+Hdo::Import::Cli.new(ARGV).run
