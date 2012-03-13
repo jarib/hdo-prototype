@@ -75,12 +75,13 @@ input_files = %w[
   folketingparser/rawdata/data.stortinget.no/eksport/dagensrepresentanter/index.html
 ]
 
-input_files.each do |path|
-  Tempfile.open("storting2hdo") do |f|
-    f << Converter.from_file(path).to_xml
-    f.close
+Dir.chdir(File.dirname(__FILE__)) do
+  input_files.each do |path|
+    Tempfile.open("storting2hdo") do |f|
+      f << Converter.from_file(File.expand_path("../#{path}", __FILE__)).to_xml
+      f.close
 
-    Dir.chdir("rails-app") { system "script/import", f.path }
+      Dir.chdir("rails-app") { system "script/import", f.path }
+    end
   end
 end
-
